@@ -1,0 +1,17 @@
+# Default initial positions for hand_robot's ros2_control fake system
+
+initial_positions:
+  base_to_base_1: 0.0
+  base_to_base_2: 0.0
+  base_to_base_3: 0.0
+  base_to_base_4: 0.0
+  base_to_base_thumb: 0.0
+  base_to_middle_1: 0.0
+  base_to_middle_2: 0.0
+  base_to_middle_3: 0.0
+  base_to_middle_4: 0.0
+  middle_to_tip_1: 0.0
+  middle_to_tip_2: 0.0
+  middle_to_tip_3: 0.0
+  middle_to_tip_4: 0.0
+  thumb_base_to_middle: 0.0

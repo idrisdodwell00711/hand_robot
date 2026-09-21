@@ -1,0 +1,28 @@
+# MoveIt uses this configuration for controller management
+
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+  controller_names:
+    - hand_controller
+
+  hand_controller:
+    type: FollowJointTrajectory
+    joints:
+      - base_to_base_thumb
+      - thumb_base_to_middle
+      - base_to_base_1
+      - base_to_middle_1
+      - middle_to_tip_1
+      - base_to_base_2
+      - base_to_middle_2
+      - middle_to_tip_2
+      - base_to_base_3
+      - base_to_middle_3
+      - middle_to_tip_3
+      - base_to_base_4
+      - base_to_middle_4
+      - middle_to_tip_4
+
+    action_ns: follow_joint_trajectory
+    default: true

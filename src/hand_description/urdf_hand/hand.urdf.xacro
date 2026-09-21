@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <link name="base_link"/>
+
+    <link name="palm">
+
+        <!-- Visual -->
+        <visual>
+            <geometry>
+                <box size="0.085 0.030 0.10"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+
+        <!-- Simple collision -->
+        <collision>
+            <geometry>
+                <box size="0.080 0.030 0.100"/>
+            </geometry>
+        </collision>
+
+    </link>
+
+    <joint name="base_to_palm_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="palm"/>
+        <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    </joint>
+
+</robot>

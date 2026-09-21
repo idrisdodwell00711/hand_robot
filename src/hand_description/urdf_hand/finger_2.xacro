@@ -1,0 +1,127 @@
+<?xml version="1.0" ?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <link name="base_2"/>
+
+
+    <link name="finger_2_base">
+
+        <visual>
+            <geometry>
+                <box size="0.016 0.015 0.045"/>
+            </geometry>
+            <origin xyz="0 0 0.0225" rpy="0 0 0"/>
+            <material name="blue"/>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.016 0.015 0.045"/>
+            </geometry>
+            <origin xyz="0 0 0.0225" rpy="0 0 0"/>
+        </collision>
+
+    </link>
+
+
+
+
+    <link name="finger_2_middle">
+
+        <visual>
+            <geometry>
+                <box size="0.016 0.015 0.035"/>
+            </geometry>
+            <origin xyz="0 0 0.0175" rpy="0 0 0"/>
+            <material name="light_green"/>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.016 0.015 0.035"/>
+            </geometry>
+            <origin xyz="0 0 0.0175" rpy="0 0 0"/>
+        </collision>
+
+    </link>
+
+
+
+
+    <link name="finger_2_tip">
+
+        <visual>
+            <geometry>
+                <box size="0.016 0.015 0.035"/>
+            </geometry>
+            <origin xyz="0 0 0.0175" rpy="0 0 0"/>
+            <material name="dark_green"/>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.016 0.015 0.035"/>
+            </geometry>
+            <origin xyz="0 0 0.0175" rpy="0 0 0"/>
+        </collision>
+
+    </link>
+
+    <joint name="base_to_base_2" type="revolute">
+
+        <parent link="base_2"/>
+        <child link="finger_2_base"/>
+
+        <!-- End of 45 mm base segment -->
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+
+        <axis xyz="1 0 0"/>
+
+        <limit
+            effort="1000.0"
+            velocity="1.0"
+            lower="-1.57"
+            upper="0.57"/>
+
+    </joint>
+
+     <joint name="base_to_middle_2" type="revolute">
+
+        <parent link="finger_2_base"/>
+        <child link="finger_2_middle"/>
+
+        <!-- Position of the joint at the end of the 45 mm segment -->
+        <origin xyz="0 0 0.045" rpy="0 0 0"/>
+
+        <axis xyz="1 0 0"/>
+
+        <limit
+            effort="1000.0"
+            velocity="1.0"
+            lower="-1.57"
+            upper="0.57"/>
+
+    </joint>
+
+
+
+    <joint name="middle_to_tip_2" type="revolute">
+
+        <parent link="finger_2_middle"/>
+        <child link="finger_2_tip"/>
+
+        <!-- Joint at the end of the 35 mm middle segment -->
+        <origin xyz="0 0 0.035" rpy="0 0 0"/>
+
+        <axis xyz="1 0 0"/>
+
+        <limit
+            effort="1000.0"
+            velocity="1.0"
+            lower="-1.57"
+            upper="0.57"/>
+
+    </joint>
+
+</robot>

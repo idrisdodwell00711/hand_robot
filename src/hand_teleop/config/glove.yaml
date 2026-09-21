@@ -1,0 +1,67 @@
+glove:
+
+  update_rate: 50.0
+
+  calibration:
+
+    enabled: true
+
+
+  robot:
+
+    joint_count: 14
+
+    joint_names:
+
+      - base_to_base_1
+      - base_to_base_2
+      - base_to_base_3
+      - base_to_base_4
+      - base_to_base_thumb
+      - base_to_middle_1
+      - base_to_middle_2
+      - base_to_middle_3
+      - base_to_middle_4
+      - middle_to_tip_1
+      - middle_to_tip_2
+      - middle_to_tip_3
+      - middle_to_tip_4
+      - thumb_base_to_middle
+
+
+  mapping:
+
+    scale:
+
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+      - 1.0
+
+
+    offset:
+
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="hand_robot">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="hand">
+        <joint name="virtual_joint"/>
+        <joint name="base_to_palm_joint"/>
+        <joint name="base_to_palm"/>
+        <joint name="base_to_base_thumb"/>
+        <joint name="thumb_base_to_middle"/>
+        <joint name="base_to_palm_1"/>
+        <joint name="base_to_base_1"/>
+        <joint name="base_to_middle_1"/>
+        <joint name="middle_to_tip_1"/>
+        <joint name="base_to_palm_2"/>
+        <joint name="base_to_base_2"/>
+        <joint name="base_to_middle_2"/>
+        <joint name="middle_to_tip_2"/>
+        <joint name="base_to_palm_3"/>
+        <joint name="base_to_base_3"/>
+        <joint name="base_to_middle_3"/>
+        <joint name="middle_to_tip_3"/>
+        <joint name="base_to_palm_4"/>
+        <joint name="base_to_base_4"/>
+        <joint name="base_to_middle_4"/>
+        <joint name="middle_to_tip_4"/>
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="home" group="hand">
+        <joint name="base_to_base_1" value="-0.0567"/>
+        <joint name="base_to_base_2" value="0"/>
+        <joint name="base_to_base_3" value="0"/>
+        <joint name="base_to_base_4" value="0"/>
+        <joint name="base_to_base_thumb" value="0.0379"/>
+        <joint name="base_to_middle_1" value="0.0409"/>
+        <joint name="base_to_middle_2" value="0"/>
+        <joint name="base_to_middle_3" value="0"/>
+        <joint name="base_to_middle_4" value="-0.0331"/>
+        <joint name="middle_to_tip_1" value="0"/>
+        <joint name="middle_to_tip_2" value="0"/>
+        <joint name="middle_to_tip_3" value="0"/>
+        <joint name="middle_to_tip_4" value="0"/>
+        <joint name="thumb_base_to_middle" value="-0.1513"/>
+    </group_state>
+    <group_state name="close_hand" group="hand">
+        <joint name="base_to_base_1" value="-1.57"/>
+        <joint name="base_to_base_2" value="-1.3572"/>
+        <joint name="base_to_base_3" value="-1.57"/>
+        <joint name="base_to_base_4" value="-1.57"/>
+        <joint name="base_to_base_thumb" value="-1.57"/>
+        <joint name="base_to_middle_1" value="-0.5699"/>
+        <joint name="base_to_middle_2" value="-1.57"/>
+        <joint name="base_to_middle_3" value="-1.57"/>
+        <joint name="base_to_middle_4" value="-1.57"/>
+        <joint name="middle_to_tip_1" value="-0.5699"/>
+        <joint name="middle_to_tip_2" value="-0.1749"/>
+        <joint name="middle_to_tip_3" value="-0.6833"/>
+        <joint name="middle_to_tip_4" value="-0.7188"/>
+        <joint name="thumb_base_to_middle" value="-1.57"/>
+    </group_state>
+    <group_state name="what_I_think_of_you" group="hand">
+        <joint name="base_to_base_1" value="-1.3217"/>
+        <joint name="base_to_base_2" value="0"/>
+        <joint name="base_to_base_3" value="-1.57"/>
+        <joint name="base_to_base_4" value="-1.57"/>
+        <joint name="base_to_base_thumb" value="-1.57"/>
+        <joint name="base_to_middle_1" value="-0.3369"/>
+        <joint name="base_to_middle_2" value="0"/>
+        <joint name="base_to_middle_3" value="-1.1799"/>
+        <joint name="base_to_middle_4" value="-1.57"/>
+        <joint name="middle_to_tip_1" value="0"/>
+        <joint name="middle_to_tip_2" value="0"/>
+        <joint name="middle_to_tip_3" value="-0.9198"/>
+        <joint name="middle_to_tip_4" value="-0.7424"/>
+        <joint name="thumb_base_to_middle" value="-1.1444"/>
+    </group_state>
+    <group_state name="what_I_think_of_you_2" group="hand">
+        <joint name="base_to_base_1" value="0"/>
+        <joint name="base_to_base_2" value="0"/>
+        <joint name="base_to_base_3" value="-1.57"/>
+        <joint name="base_to_base_4" value="-1.57"/>
+        <joint name="base_to_base_thumb" value="-1.57"/>
+        <joint name="base_to_middle_1" value="0"/>
+        <joint name="base_to_middle_2" value="0"/>
+        <joint name="base_to_middle_3" value="-1.57"/>
+        <joint name="base_to_middle_4" value="-1.57"/>
+        <joint name="middle_to_tip_1" value="0"/>
+        <joint name="middle_to_tip_2" value="0"/>
+        <joint name="middle_to_tip_3" value="-0.6715"/>
+        <joint name="middle_to_tip_4" value="-0.6951"/>
+        <joint name="thumb_base_to_middle" value="-1.2271"/>
+    </group_state>
+    <group_state name="HJ_time" group="hand">
+        <joint name="base_to_base_1" value="-1.0498"/>
+        <joint name="base_to_base_2" value="-1.1562"/>
+        <joint name="base_to_base_3" value="-1.168"/>
+        <joint name="base_to_base_4" value="-1.2744"/>
+        <joint name="base_to_base_thumb" value="-1.0498"/>
+        <joint name="base_to_middle_1" value="-0.5699"/>
+        <joint name="base_to_middle_2" value="-0.6833"/>
+        <joint name="base_to_middle_3" value="-0.5769"/>
+        <joint name="base_to_middle_4" value="-0.4823"/>
+        <joint name="middle_to_tip_1" value="-0.5132"/>
+        <joint name="middle_to_tip_2" value="-0.2459"/>
+        <joint name="middle_to_tip_3" value="-0.6951"/>
+        <joint name="middle_to_tip_4" value="-0.506"/>
+        <joint name="thumb_base_to_middle" value="-0.9434"/>
+    </group_state>
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="virtual_joint" type="fixed" parent_frame="world" child_link="base_link"/>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="finger_1_base" link2="finger_1_middle" reason="Adjacent"/>
+    <disable_collisions link1="finger_1_base" link2="finger_1_tip" reason="Never"/>
+    <disable_collisions link1="finger_1_base" link2="finger_2_base" reason="Never"/>
+    <disable_collisions link1="finger_1_base" link2="finger_2_middle" reason="Never"/>
+    <disable_collisions link1="finger_1_base" link2="finger_2_tip" reason="Never"/>
+    <disable_collisions link1="finger_1_base" link2="finger_3_base" reason="Never"/>
+    <disable_collisions link1="finger_1_base" link2="finger_3_middle" reason="Never"/>
+    <disable_collisions link1="finger_1_base" link2="finger_3_tip" reason="Never"/>
+    <disable_collisions link1="finger_1_base" link2="finger_4_base" reason="Never"/>
+    <disable_collisions link1="finger_1_base" link2="finger_4_middle" reason="Never"/>
+    <disable_collisions link1="finger_1_base" link2="finger_4_tip" reason="Never"/>
+    <disable_collisions link1="finger_1_base" link2="palm" reason="Adjacent"/>
+    <disable_collisions link1="finger_1_base" link2="thumb_base" reason="Never"/>
+    <disable_collisions link1="finger_1_base" link2="thumb_middle" reason="Never"/>
+    <disable_collisions link1="finger_1_middle" link2="finger_1_tip" reason="Adjacent"/>
+    <disable_collisions link1="finger_1_middle" link2="finger_2_base" reason="Never"/>
+    <disable_collisions link1="finger_1_middle" link2="finger_2_middle" reason="Never"/>
+    <disable_collisions link1="finger_1_middle" link2="finger_2_tip" reason="Never"/>
+    <disable_collisions link1="finger_1_middle" link2="finger_3_base" reason="Never"/>
+    <disable_collisions link1="finger_1_middle" link2="finger_3_middle" reason="Never"/>
+    <disable_collisions link1="finger_1_middle" link2="finger_3_tip" reason="Never"/>
+    <disable_collisions link1="finger_1_middle" link2="finger_4_base" reason="Never"/>
+    <disable_collisions link1="finger_1_middle" link2="finger_4_middle" reason="Never"/>
+    <disable_collisions link1="finger_1_middle" link2="finger_4_tip" reason="Never"/>
+    <disable_collisions link1="finger_1_middle" link2="palm" reason="Never"/>
+    <disable_collisions link1="finger_1_middle" link2="thumb_base" reason="Never"/>
+    <disable_collisions link1="finger_1_middle" link2="thumb_middle" reason="Never"/>
+    <disable_collisions link1="finger_1_tip" link2="finger_2_base" reason="Never"/>
+    <disable_collisions link1="finger_1_tip" link2="finger_2_middle" reason="Never"/>
+    <disable_collisions link1="finger_1_tip" link2="finger_2_tip" reason="Never"/>
+    <disable_collisions link1="finger_1_tip" link2="finger_3_base" reason="Never"/>
+    <disable_collisions link1="finger_1_tip" link2="finger_3_middle" reason="Never"/>
+    <disable_collisions link1="finger_1_tip" link2="finger_3_tip" reason="Never"/>
+    <disable_collisions link1="finger_1_tip" link2="finger_4_base" reason="Never"/>
+    <disable_collisions link1="finger_1_tip" link2="finger_4_middle" reason="Never"/>
+    <disable_collisions link1="finger_1_tip" link2="finger_4_tip" reason="Never"/>
+    <disable_collisions link1="finger_1_tip" link2="palm" reason="Never"/>
+    <disable_collisions link1="finger_1_tip" link2="thumb_base" reason="Never"/>
+    <disable_collisions link1="finger_1_tip" link2="thumb_middle" reason="Never"/>
+    <disable_collisions link1="finger_2_base" link2="finger_2_middle" reason="Adjacent"/>
+    <disable_collisions link1="finger_2_base" link2="finger_2_tip" reason="Never"/>
+    <disable_collisions link1="finger_2_base" link2="finger_3_base" reason="Never"/>
+    <disable_collisions link1="finger_2_base" link2="finger_3_middle" reason="Never"/>
+    <disable_collisions link1="finger_2_base" link2="finger_3_tip" reason="Never"/>
+    <disable_collisions link1="finger_2_base" link2="finger_4_base" reason="Never"/>
+    <disable_collisions link1="finger_2_base" link2="finger_4_middle" reason="Never"/>
+    <disable_collisions link1="finger_2_base" link2="finger_4_tip" reason="Never"/>
+    <disable_collisions link1="finger_2_base" link2="palm" reason="Adjacent"/>
+    <disable_collisions link1="finger_2_base" link2="thumb_base" reason="Never"/>
+    <disable_collisions link1="finger_2_base" link2="thumb_middle" reason="Never"/>
+    <disable_collisions link1="finger_2_middle" link2="finger_2_tip" reason="Adjacent"/>
+    <disable_collisions link1="finger_2_middle" link2="finger_3_base" reason="Never"/>
+    <disable_collisions link1="finger_2_middle" link2="finger_3_middle" reason="Never"/>
+    <disable_collisions link1="finger_2_middle" link2="finger_3_tip" reason="Never"/>
+    <disable_collisions link1="finger_2_middle" link2="finger_4_base" reason="Never"/>
+    <disable_collisions link1="finger_2_middle" link2="finger_4_middle" reason="Never"/>
+    <disable_collisions link1="finger_2_middle" link2="finger_4_tip" reason="Never"/>
+    <disable_collisions link1="finger_2_middle" link2="palm" reason="Never"/>
+    <disable_collisions link1="finger_2_middle" link2="thumb_base" reason="Never"/>
+    <disable_collisions link1="finger_2_middle" link2="thumb_middle" reason="Never"/>
+    <disable_collisions link1="finger_2_tip" link2="finger_3_base" reason="Never"/>
+    <disable_collisions link1="finger_2_tip" link2="finger_3_middle" reason="Never"/>
+    <disable_collisions link1="finger_2_tip" link2="finger_3_tip" reason="Never"/>
+    <disable_collisions link1="finger_2_tip" link2="finger_4_base" reason="Never"/>
+    <disable_collisions link1="finger_2_tip" link2="finger_4_middle" reason="Never"/>
+    <disable_collisions link1="finger_2_tip" link2="finger_4_tip" reason="Never"/>
+    <disable_collisions link1="finger_2_tip" link2="thumb_base" reason="Never"/>
+    <disable_collisions link1="finger_3_base" link2="finger_3_middle" reason="Adjacent"/>
+    <disable_collisions link1="finger_3_base" link2="finger_3_tip" reason="Never"/>
+    <disable_collisions link1="finger_3_base" link2="finger_4_base" reason="Never"/>
+    <disable_collisions link1="finger_3_base" link2="finger_4_middle" reason="Never"/>
+    <disable_collisions link1="finger_3_base" link2="finger_4_tip" reason="Never"/>
+    <disable_collisions link1="finger_3_base" link2="palm" reason="Adjacent"/>
+    <disable_collisions link1="finger_3_base" link2="thumb_base" reason="Never"/>
+    <disable_collisions link1="finger_3_base" link2="thumb_middle" reason="Never"/>
+    <disable_collisions link1="finger_3_middle" link2="finger_3_tip" reason="Adjacent"/>
+    <disable_collisions link1="finger_3_middle" link2="finger_4_base" reason="Never"/>
+    <disable_collisions link1="finger_3_middle" link2="finger_4_middle" reason="Never"/>
+    <disable_collisions link1="finger_3_middle" link2="finger_4_tip" reason="Never"/>
+    <disable_collisions link1="finger_3_middle" link2="palm" reason="Never"/>
+    <disable_collisions link1="finger_3_middle" link2="thumb_base" reason="Never"/>
+    <disable_collisions link1="finger_3_middle" link2="thumb_middle" reason="Never"/>
+    <disable_collisions link1="finger_3_tip" link2="finger_4_base" reason="Never"/>
+    <disable_collisions link1="finger_3_tip" link2="finger_4_middle" reason="Never"/>
+    <disable_collisions link1="finger_3_tip" link2="finger_4_tip" reason="Never"/>
+    <disable_collisions link1="finger_3_tip" link2="thumb_base" reason="Never"/>
+    <disable_collisions link1="finger_3_tip" link2="thumb_middle" reason="Never"/>
+    <disable_collisions link1="finger_4_base" link2="finger_4_middle" reason="Adjacent"/>
+    <disable_collisions link1="finger_4_base" link2="finger_4_tip" reason="Never"/>
+    <disable_collisions link1="finger_4_base" link2="palm" reason="Adjacent"/>
+    <disable_collisions link1="finger_4_base" link2="thumb_base" reason="Never"/>
+    <disable_collisions link1="finger_4_base" link2="thumb_middle" reason="Never"/>
+    <disable_collisions link1="finger_4_middle" link2="finger_4_tip" reason="Adjacent"/>
+    <disable_collisions link1="finger_4_middle" link2="palm" reason="Never"/>
+    <disable_collisions link1="finger_4_middle" link2="thumb_base" reason="Never"/>
+    <disable_collisions link1="finger_4_middle" link2="thumb_middle" reason="Never"/>
+    <disable_collisions link1="finger_4_tip" link2="thumb_base" reason="Never"/>
+    <disable_collisions link1="finger_4_tip" link2="thumb_middle" reason="Never"/>
+    <disable_collisions link1="palm" link2="thumb_base" reason="Adjacent"/>
+    <disable_collisions link1="palm" link2="thumb_middle" reason="Never"/>
+    <disable_collisions link1="thumb_base" link2="thumb_middle" reason="Adjacent"/>
+</robot>

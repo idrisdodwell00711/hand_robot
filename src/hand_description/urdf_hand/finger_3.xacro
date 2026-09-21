@@ -1,0 +1,123 @@
+<?xml version="1.0" ?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+  <link name="base_3"/>
+
+
+
+    <link name="finger_3_base">
+
+        <visual>
+            <geometry>
+                <box size="0.016 0.015 0.045"/>
+            </geometry>
+            <origin xyz="0 0 0.0225" rpy="0 0 0"/>
+            <material name="blue"/>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.016 0.015 0.045"/>
+            </geometry>
+            <origin xyz="0 0 0.0225" rpy="0 0 0"/>
+        </collision>
+
+    </link>
+
+
+
+
+    <link name="finger_3_middle">
+
+        <visual>
+            <geometry>
+                <box size="0.016 0.015 0.035"/>
+            </geometry>
+            <origin xyz="0 0 0.0175" rpy="0 0 0"/>
+            <material name="light_green"/>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.016 0.015 0.035"/>
+            </geometry>
+            <origin xyz="0 0 0.0175" rpy="0 0 0"/>
+        </collision>
+
+    </link>
+
+
+
+
+    <link name="finger_3_tip">
+
+        <visual>
+            <geometry>
+                <box size="0.016 0.015 0.035"/>
+            </geometry>
+            <origin xyz="0 0 0.0175" rpy="0 0 0"/>
+            <material name="dark_green"/>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.016 0.015 0.035"/>
+            </geometry>
+            <origin xyz="0 0 0.0175" rpy="0 0 0"/>
+        </collision>
+
+    </link>
+
+    <joint name="base_to_base_3" type="revolute">
+
+        <parent link="base_3"/>
+        <child link="finger_3_base"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+
+        <axis xyz="1 0 0"/>
+
+        <limit
+            effort="1000.0"
+            velocity="1.0"
+            lower="-1.57"
+            upper="0.57"/>
+
+    </joint>
+
+     <joint name="base_to_middle_3" type="revolute">
+
+        <parent link="finger_3_base"/>
+        <child link="finger_3_middle"/>
+        <origin xyz="0 0 0.045" rpy="0 0 0"/>
+
+        <axis xyz="1 0 0"/>
+
+        <limit
+            effort="1000.0"
+            velocity="1.0"
+            lower="-1.57"
+            upper="0.57"/>
+
+    </joint>
+
+
+
+    <joint name="middle_to_tip_3" type="revolute">
+
+        <parent link="finger_3_middle"/>
+        <child link="finger_3_tip"/>
+        <origin xyz="0 0 0.035" rpy="0 0 0"/>
+
+        <axis xyz="1 0 0"/>
+
+        <limit
+            effort="1000.0"
+            velocity="1.0"
+            lower="-1.57"
+            upper="0.57"/>
+
+    </joint>
+
+</robot>

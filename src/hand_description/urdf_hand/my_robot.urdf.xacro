@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="hand_robot">
+//files for the parts of the robotic hand
+
+    
+    <xacro:include filename="hand.urdf.xacro"/>
+
+    <xacro:include filename="finger_1.xacro"/>
+    <xacro:include filename="finger_2.xacro"/>
+    <xacro:include filename="finger_3.xacro"/>
+    <xacro:include filename="finger_4.xacro"/>
+    <xacro:include filename="thumb.xacro"/>
+    <xacro:include filename="common_properties.xacro"/>
+
+    //The joints connecting the hand together
+
+
+    <joint name="base_to_palm_1" type="fixed">
+        <parent link="palm"/>
+        <child link="base_1"/>
+
+        <origin xyz="-0.030 0 0.05" rpy="0 0 0"/>
+
+    </joint>
+
+
+    <joint name="base_to_palm_2" type="fixed">
+        <parent link="palm"/>
+        <child link="base_2"/>
+
+        <origin xyz="-0.010 0 0.05" rpy="0 0 0"/>
+
+    </joint>
+
+
+    <joint name="base_to_palm_3" type="fixed">
+        <parent link="palm"/>
+        <child link="base_3"/>
+
+        <origin xyz="0.010 0 0.05" rpy="0 0 0"/>
+
+    </joint>
+
+
+    <joint name="base_to_palm_4" type="fixed">
+        <parent link="palm"/>
+        <child link="base_4"/>
+
+        <origin xyz="0.030 0 0.05" rpy="0 0 0"/>
+
+    </joint>
+
+
+    <joint name="base_to_palm" type="fixed">
+        <parent link="palm"/>
+        <child link="base_thumb"/>
+
+        <origin xyz="-0.0425 0 -0.001" rpy="0 -1.57 0"/>
+
+    </joint>
+
+</robot>
